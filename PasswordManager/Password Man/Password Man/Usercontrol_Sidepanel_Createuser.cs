@@ -107,8 +107,7 @@ namespace Password_Man
             {
                 string CasedLetter = Textbox_Name.Text.Substring(0, 1).ToUpper();
                 string RestName = Textbox_Name.Text.Substring(1, Textbox_Name.Text.Length - 1);
-
-                int i = 0;
+                
                 string CasedName = CasedLetter + RestName;
 
                 CreateUser(CasedName, Textbox_Password.Text);
