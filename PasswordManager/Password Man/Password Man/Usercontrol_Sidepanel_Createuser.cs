@@ -103,7 +103,6 @@ namespace Password_Man
 
         private void Button_CreateUser_Click(object sender, EventArgs e)
         {
-            int i = 100;
             if (Textbox_Name.Text.Length != 0 && Textbox_Password.Text.Length != 0 && !Textbox_Name.Text.Contains(" ") && !Textbox_Password.Text.Contains(" "))
             {
                 string CasedLetter = Textbox_Name.Text.Substring(0, 1).ToUpper();
