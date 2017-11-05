@@ -99,6 +99,7 @@ namespace Password_Man
 
         private void Usercontrol_Sidepanel_Createuser_Load(object sender, EventArgs e)
         {
+           
         }
 
         private void Button_CreateUser_Click(object sender, EventArgs e)

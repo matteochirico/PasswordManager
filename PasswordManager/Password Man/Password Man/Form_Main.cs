@@ -15,6 +15,7 @@ namespace Password_Man
     {
         public List<string> Users = new List<string>();
         string[] getFolder;
+        
 
         Usercontrol_Sidepanel_Createuser uscu = new Usercontrol_Sidepanel_Createuser();
         Usercontol_Sidepanel_Chooseuser uschu = new Usercontol_Sidepanel_Chooseuser();
@@ -35,6 +36,7 @@ namespace Password_Man
             else
             {
                 Panel_Placeholder_Sidepanel.Controls.Add(uschu);
+                Picture_AddUser.Visible = true;             
             }
         }
 
@@ -46,7 +48,7 @@ namespace Password_Man
             for (var i = 0; i < getFolder.Length; i++)
             {
                 Users.Add(getFolder[i]);
-
+                
                 string fullName()
                 {
                     var index = getFolder[i].IndexOf('@') + 1;
@@ -62,6 +64,25 @@ namespace Password_Man
             }
         }
 
-       
+        private void Picture_AddUser_Click(object sender, EventArgs e)
+        {
+            Picture_AddUser.Visible = false;
+            Picture_AddUser.Enabled = false;
+            Picture_GoBack.Visible = true;
+            Picture_GoBack.Enabled = true;
+            Panel_Placeholder_Sidepanel.Controls.Add(uscu);
+            uscu.BringToFront();
+            Animator_Usercontrol.ShowSync(uscu);
+        }
+
+        private void Picture_GoBack_Click(object sender, EventArgs e)
+        {
+            Animator_Usercontrol.Hide(uschu);
+            Picture_AddUser.Visible = true;
+            Picture_AddUser.Enabled = true;
+            Picture_GoBack.Visible = false;
+            Picture_GoBack.Enabled = false;
+            Panel_Placeholder_Sidepanel.Controls.Remove(uscu);
+        }
     }
 }

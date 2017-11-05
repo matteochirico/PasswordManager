@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.Label_Title = new System.Windows.Forms.Label();
-            this.Pictrure_Logo = new System.Windows.Forms.PictureBox();
             this.Panel_Placeholder_Users = new System.Windows.Forms.Panel();
+            this.Pictrure_Logo = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.Pictrure_Logo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -46,23 +46,23 @@
             this.Label_Title.TabIndex = 3;
             this.Label_Title.Text = "Password Manager";
             // 
-            // Pictrure_Logo
-            // 
-            this.Pictrure_Logo.BackColor = System.Drawing.Color.Transparent;
-            this.Pictrure_Logo.Image = global::Password_Man.Properties.Resources.Logo2_White;
-            this.Pictrure_Logo.Location = new System.Drawing.Point(73, -11);
-            this.Pictrure_Logo.Name = "Pictrure_Logo";
-            this.Pictrure_Logo.Size = new System.Drawing.Size(74, 78);
-            this.Pictrure_Logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.Pictrure_Logo.TabIndex = 2;
-            this.Pictrure_Logo.TabStop = false;
-            // 
             // Panel_Placeholder_Users
             // 
             this.Panel_Placeholder_Users.Location = new System.Drawing.Point(21, 144);
             this.Panel_Placeholder_Users.Name = "Panel_Placeholder_Users";
             this.Panel_Placeholder_Users.Size = new System.Drawing.Size(182, 175);
             this.Panel_Placeholder_Users.TabIndex = 4;
+            // 
+            // Pictrure_Logo
+            // 
+            this.Pictrure_Logo.BackColor = System.Drawing.Color.Transparent;
+            this.Pictrure_Logo.Image = global::Password_Man.Properties.Resources.Logo2_White;
+            this.Pictrure_Logo.Location = new System.Drawing.Point(75, -11);
+            this.Pictrure_Logo.Name = "Pictrure_Logo";
+            this.Pictrure_Logo.Size = new System.Drawing.Size(74, 78);
+            this.Pictrure_Logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Pictrure_Logo.TabIndex = 2;
+            this.Pictrure_Logo.TabStop = false;
             // 
             // Usercontol_Sidepanel_Chooseuser
             // 
