@@ -29,6 +29,10 @@ namespace Password_Man
                 Usercontrol_Sidepanel_Createuser uscu = new Usercontrol_Sidepanel_Createuser();
                 Panel_Placeholder_Sidepanel.Controls.Add(uscu);
             }
+            else
+            {
+
+            }
         }
 
         public void CheckForUsers()
