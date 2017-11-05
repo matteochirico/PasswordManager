@@ -13,7 +13,11 @@ namespace Password_Man
 {
     public partial class Form_Main : Form
     {
-        List<string> Users = new List<string>();
+        public List<string> Users = new List<string>();
+        string[] getFolder;
+
+        Usercontrol_Sidepanel_Createuser uscu = new Usercontrol_Sidepanel_Createuser();
+        Usercontol_Sidepanel_Chooseuser uschu = new Usercontol_Sidepanel_Chooseuser();
 
         public Form_Main()
         {
@@ -26,27 +30,38 @@ namespace Password_Man
 
             if (Users.Count == 0)
             {
-                Usercontrol_Sidepanel_Createuser uscu = new Usercontrol_Sidepanel_Createuser();
                 Panel_Placeholder_Sidepanel.Controls.Add(uscu);
             }
             else
             {
-
+                Panel_Placeholder_Sidepanel.Controls.Add(uschu);
             }
         }
 
         public void CheckForUsers()
         {
             var currentDirectory = Directory.GetCurrentDirectory();
-            MessageBox.Show(currentDirectory);
-            var getFolder = Directory.GetDirectories(currentDirectory, "@*");
+            getFolder = Directory.GetDirectories(currentDirectory, "@*");
 
             for (var i = 0; i < getFolder.Length; i++)
             {
-                MessageBox.Show(getFolder[i]);
                 Users.Add(getFolder[i]);
-                var startOfName = getFolder[i].IndexOf('@') + 1;
+
+                string fullName()
+                {
+                    var index = getFolder[i].IndexOf('@') + 1;
+                    string name = getFolder[i].Substring(index);
+                    string casedLetter = name.Substring(0, 1).ToUpper();
+                    string restOfName = name.Substring(1, name.Length - 1);
+                    return casedLetter + restOfName;
+
+                }
+
+               
+                uschu.AddUser(fullName());
             }
         }
+
+       
     }
 }

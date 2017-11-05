@@ -16,5 +16,20 @@ namespace Password_Man
         {
             InitializeComponent();
         }
+
+        public void AddUser(string name)
+        {
+            Usercontrol_Sidepanel_Userpanel usup = new Usercontrol_Sidepanel_Userpanel();
+            Form_Main fm = new Form_Main();
+            usup.GetName(name);
+            usup.Location = new Point(0, 0);
+            Panel_Placeholder_Users.Controls.Add(usup);
+            
+        }
+
+        private void Usercontol_Sidepanel_Chooseuser_Load(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

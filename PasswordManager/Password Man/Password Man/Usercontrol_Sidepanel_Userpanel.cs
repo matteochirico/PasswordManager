@@ -16,5 +16,10 @@ namespace Password_Man
         {
             InitializeComponent();
         }
+
+        public void GetName(string name)
+        {
+            Label_Name.Text = name;
+        }
     }
 }
