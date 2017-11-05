@@ -14,7 +14,8 @@ namespace Password_Man
     public partial class Form_Main : Form
     {
         List<string> Users = new List<string>();
-        
+        bool bastianFikserAlltid = true;
+
         public Form_Main()
         {
             InitializeComponent();
