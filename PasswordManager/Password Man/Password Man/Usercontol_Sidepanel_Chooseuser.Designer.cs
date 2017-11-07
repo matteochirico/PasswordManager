@@ -86,6 +86,6 @@
 
         private System.Windows.Forms.Label Label_Title;
         private System.Windows.Forms.PictureBox Pictrure_Logo;
-        private System.Windows.Forms.Panel Panel_Placeholder_Users;
+        public System.Windows.Forms.Panel Panel_Placeholder_Users;
     }
 }

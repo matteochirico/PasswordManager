@@ -13,12 +13,12 @@ namespace Password_Man
 {
     public partial class Form_Main : Form
     {
-        public List<string> Users = new List<string>();
-        string[] getFolder;
+        public static List<string> Users = new List<string>();
+        static string[] getFolder;
         
 
         Usercontrol_Sidepanel_Createuser uscu = new Usercontrol_Sidepanel_Createuser();
-        Usercontol_Sidepanel_Chooseuser uschu = new Usercontol_Sidepanel_Chooseuser();
+        static Usercontol_Sidepanel_Chooseuser uschu = new Usercontol_Sidepanel_Chooseuser();
 
         public Form_Main()
         {
@@ -40,7 +40,7 @@ namespace Password_Man
             }
         }
 
-        public void CheckForUsers()
+        public static void CheckForUsers()
         {
             var currentDirectory = Directory.GetCurrentDirectory();
             getFolder = Directory.GetDirectories(currentDirectory, "@*");
@@ -58,9 +58,7 @@ namespace Password_Man
                         string casedLetter = name.Substring(0, 1).ToUpper();
                         string restOfName = name.Substring(1, name.Length - 1);
                         return casedLetter + restOfName;
-
                     }
-
 
                     uschu.AddUser(fullName(), (Users.Count - 1) * 41);
                 }
@@ -79,12 +77,14 @@ namespace Password_Man
 
         private void Picture_GoBack_Click(object sender, EventArgs e)
         {
-            CheckForUsers();
             Panel_Placeholder_Sidepanel.Controls.Remove(uscu);
             Picture_AddUser.Visible = true;
             Picture_AddUser.Enabled = true;
             Picture_GoBack.Visible = false;
             Picture_GoBack.Enabled = false;
+            uscu.Textbox_Name.ResetText();
+            uscu.Textbox_Password.ResetText();
+            uscu.Label_Error.ResetText();
         }
     }
 }

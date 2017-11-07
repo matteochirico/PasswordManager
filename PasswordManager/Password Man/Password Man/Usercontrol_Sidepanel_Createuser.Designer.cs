@@ -37,10 +37,10 @@
             this.Elipse_Name = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.Elipse_Password = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.Panel_Password = new System.Windows.Forms.Panel();
+            this.Picture_PasswordChar = new System.Windows.Forms.PictureBox();
             this.Placeholder_Password = new System.Windows.Forms.Label();
             this.Textbox_Password = new System.Windows.Forms.TextBox();
             this.Button_CreateUser = new Bunifu.Framework.UI.BunifuThinButton2();
-            this.Picture_PasswordChar = new System.Windows.Forms.PictureBox();
             this.Pictrure_Logo = new System.Windows.Forms.PictureBox();
             this.Label_Error = new System.Windows.Forms.Label();
             this.Panel_Name.SuspendLayout();
@@ -66,6 +66,7 @@
             this.Panel_Name.BackColor = System.Drawing.SystemColors.Control;
             this.Panel_Name.Controls.Add(this.Placeholder_Name);
             this.Panel_Name.Controls.Add(this.Textbox_Name);
+            this.Panel_Name.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.Panel_Name.Location = new System.Drawing.Point(21, 164);
             this.Panel_Name.Name = "Panel_Name";
             this.Panel_Name.Size = new System.Drawing.Size(182, 35);
@@ -75,6 +76,7 @@
             // Placeholder_Name
             // 
             this.Placeholder_Name.AutoSize = true;
+            this.Placeholder_Name.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.Placeholder_Name.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Placeholder_Name.ForeColor = System.Drawing.Color.DarkGray;
             this.Placeholder_Name.Location = new System.Drawing.Point(10, 8);
@@ -112,15 +114,29 @@
             this.Panel_Password.Controls.Add(this.Picture_PasswordChar);
             this.Panel_Password.Controls.Add(this.Placeholder_Password);
             this.Panel_Password.Controls.Add(this.Textbox_Password);
+            this.Panel_Password.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.Panel_Password.Location = new System.Drawing.Point(21, 205);
             this.Panel_Password.Name = "Panel_Password";
             this.Panel_Password.Size = new System.Drawing.Size(182, 35);
             this.Panel_Password.TabIndex = 3;
             this.Panel_Password.Click += new System.EventHandler(this.Textbox_Password_Click);
             // 
+            // Picture_PasswordChar
+            // 
+            this.Picture_PasswordChar.Image = global::Password_Man.Properties.Resources.Visible_Gray;
+            this.Picture_PasswordChar.Location = new System.Drawing.Point(147, 0);
+            this.Picture_PasswordChar.Name = "Picture_PasswordChar";
+            this.Picture_PasswordChar.Size = new System.Drawing.Size(30, 35);
+            this.Picture_PasswordChar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Picture_PasswordChar.TabIndex = 2;
+            this.Picture_PasswordChar.TabStop = false;
+            this.Picture_PasswordChar.Visible = false;
+            this.Picture_PasswordChar.Click += new System.EventHandler(this.Picture_PasswordChar_Click);
+            // 
             // Placeholder_Password
             // 
             this.Placeholder_Password.AutoSize = true;
+            this.Placeholder_Password.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.Placeholder_Password.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Placeholder_Password.ForeColor = System.Drawing.Color.DarkGray;
             this.Placeholder_Password.Location = new System.Drawing.Point(10, 8);
@@ -168,18 +184,6 @@
             this.Button_CreateUser.TabIndex = 2;
             this.Button_CreateUser.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.Button_CreateUser.Click += new System.EventHandler(this.Button_CreateUser_Click);
-            // 
-            // Picture_PasswordChar
-            // 
-            this.Picture_PasswordChar.Image = global::Password_Man.Properties.Resources.Visible_Gray;
-            this.Picture_PasswordChar.Location = new System.Drawing.Point(147, 0);
-            this.Picture_PasswordChar.Name = "Picture_PasswordChar";
-            this.Picture_PasswordChar.Size = new System.Drawing.Size(30, 35);
-            this.Picture_PasswordChar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.Picture_PasswordChar.TabIndex = 2;
-            this.Picture_PasswordChar.TabStop = false;
-            this.Picture_PasswordChar.Visible = false;
-            this.Picture_PasswordChar.Click += new System.EventHandler(this.Picture_PasswordChar_Click);
             // 
             // Pictrure_Logo
             // 
@@ -236,12 +240,12 @@
         private Bunifu.Framework.UI.BunifuElipse Elipse_Name;
         private Bunifu.Framework.UI.BunifuElipse Elipse_Password;
         private System.Windows.Forms.Label Placeholder_Name;
-        private System.Windows.Forms.TextBox Textbox_Name;
         private System.Windows.Forms.Panel Panel_Password;
         private System.Windows.Forms.Label Placeholder_Password;
-        private System.Windows.Forms.TextBox Textbox_Password;
         private Bunifu.Framework.UI.BunifuThinButton2 Button_CreateUser;
         private System.Windows.Forms.PictureBox Picture_PasswordChar;
-        private System.Windows.Forms.Label Label_Error;
+        public System.Windows.Forms.TextBox Textbox_Name;
+        public System.Windows.Forms.TextBox Textbox_Password;
+        public System.Windows.Forms.Label Label_Error;
     }
 }

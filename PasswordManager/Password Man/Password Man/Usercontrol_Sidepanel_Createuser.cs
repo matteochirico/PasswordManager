@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.Collections;
 
 namespace Password_Man
 {
@@ -75,13 +76,15 @@ namespace Password_Man
 
         public void CreateUser(string name, string password)
         {
+            Usercontol_Sidepanel_Chooseuser uschu = new Usercontol_Sidepanel_Chooseuser();
             Form_Main fm = new Form_Main();
-
+            
             if (Directory.Exists("@" + name.ToLower()))
             {
-                Label_Error.Text = "That username is taken.";
+                Label_Error.Text = "User already exists";
+                return;
             }
-            else
+            else if (!Directory.Exists("@" + name.ToLower()) && Form_Main.Users.Count != 3)
             {
                 Directory.CreateDirectory("@" + name.ToLower());
                 string BaseDirectory = "@" + name.ToLower();
@@ -97,26 +100,13 @@ namespace Password_Man
                 File.Encrypt(Path.Combine(BaseDirectory, FileDirectory) + "p");
                 File.Encrypt(Path.Combine(BaseDirectory, FileDirectory) + "n");
             }
-            if (fm.Users.Count <= 2)
+            else if (Form_Main.Users.Count == 3)
             {
-                Label_Error.Text = "Maximum user count is reached.";
+                Label_Error.Text = "Maximum user count reached";
+                return;
             }
-            else
-            {
-                Directory.CreateDirectory("@" + name.ToLower());
-                string BaseDirectory = "@" + name.ToLower();
-                string FileDirectory = "#" + name.ToLower();
-                StreamWriter sp = new StreamWriter(Path.Combine(BaseDirectory, FileDirectory) + "p");
-                sp.Write(password);
-                sp.Flush();
-                sp.Close();
-                StreamWriter sn = new StreamWriter(Path.Combine(BaseDirectory, FileDirectory) + "n");
-                sn.Write(name);
-                sn.Flush();
-                sn.Close();
-                File.Encrypt(Path.Combine(BaseDirectory, FileDirectory) + "p");
-                File.Encrypt(Path.Combine(BaseDirectory, FileDirectory) + "n");
-            }
+
+            Form_Main.CheckForUsers();
         }
 
         private void Usercontrol_Sidepanel_Createuser_Load(object sender, EventArgs e)
@@ -129,20 +119,15 @@ namespace Password_Man
             Usercontol_Sidepanel_Chooseuser uscho = new Usercontol_Sidepanel_Chooseuser();
             Form_Main fm = new Form_Main();
 
-            if (fm.Users.Count <= 2)
+            if (Textbox_Name.Text.Length != 0 && Textbox_Password.Text.Length != 0 && !Textbox_Name.Text.Contains(" ") && !Textbox_Password.Text.Contains(" "))
             {
-                if (Textbox_Name.Text.Length != 0 && Textbox_Password.Text.Length != 0 && !Textbox_Name.Text.Contains(" ") && !Textbox_Password.Text.Contains(" "))
-                {
-                    string CasedLetter = Textbox_Name.Text.Substring(0, 1).ToUpper();
-                    string RestName = Textbox_Name.Text.Substring(1, Textbox_Name.Text.Length - 1);
+                string CasedLetter = Textbox_Name.Text.Substring(0, 1).ToUpper();
+                string RestName = Textbox_Name.Text.Substring(1, Textbox_Name.Text.Length - 1);
 
-                    string CasedName = CasedLetter + RestName;
+                string CasedName = CasedLetter + RestName;
 
-                    uscho.AddUser(CasedName, (fm.Users.Count - 1) * 41);
-                    CreateUser(CasedName, Textbox_Password.Text);
-                }
+                CreateUser(CasedName, Textbox_Password.Text);
             }
-            
         }
     }
 }
