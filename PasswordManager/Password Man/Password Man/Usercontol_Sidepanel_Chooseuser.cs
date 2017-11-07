@@ -12,19 +12,16 @@ namespace Password_Man
 {
     public partial class Usercontol_Sidepanel_Chooseuser : UserControl
     {
-        Usercontrol_Sidepanel_Userpanel usup = new Usercontrol_Sidepanel_Userpanel();
-        Form_Main fm = new Form_Main();
-
         public Usercontol_Sidepanel_Chooseuser()
         {
             InitializeComponent();
         }
 
-        public void AddUser(string name)
+        public void AddUser(string name, int count)
         {
-            
+            Usercontrol_Sidepanel_Userpanel usup = new Usercontrol_Sidepanel_Userpanel();
             usup.GetName(name);
-            usup.Location = new Point(0, 0);
+            usup.Location = new Point(0, count);
             Panel_Placeholder_Users.Controls.Add(usup);
             
         }
@@ -32,6 +29,11 @@ namespace Password_Man
         private void Usercontol_Sidepanel_Chooseuser_Load(object sender, EventArgs e)
         {
             
+        }
+
+        private void Panel_Placeholder_Users_Scroll(object sender, ScrollEventArgs e)
+        {
+
         }
     }
 }

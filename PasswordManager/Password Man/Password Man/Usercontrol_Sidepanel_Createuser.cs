@@ -75,9 +75,31 @@ namespace Password_Man
 
         public void CreateUser(string name, string password)
         {
+            Form_Main fm = new Form_Main();
+
             if (Directory.Exists("@" + name.ToLower()))
             {
                 Label_Error.Text = "That username is taken.";
+            }
+            else
+            {
+                Directory.CreateDirectory("@" + name.ToLower());
+                string BaseDirectory = "@" + name.ToLower();
+                string FileDirectory = "#" + name.ToLower();
+                StreamWriter sp = new StreamWriter(Path.Combine(BaseDirectory, FileDirectory) + "p");
+                sp.Write(password);
+                sp.Flush();
+                sp.Close();
+                StreamWriter sn = new StreamWriter(Path.Combine(BaseDirectory, FileDirectory) + "n");
+                sn.Write(name);
+                sn.Flush();
+                sn.Close();
+                File.Encrypt(Path.Combine(BaseDirectory, FileDirectory) + "p");
+                File.Encrypt(Path.Combine(BaseDirectory, FileDirectory) + "n");
+            }
+            if (fm.Users.Count <= 2)
+            {
+                Label_Error.Text = "Maximum user count is reached.";
             }
             else
             {
@@ -104,15 +126,23 @@ namespace Password_Man
 
         private void Button_CreateUser_Click(object sender, EventArgs e)
         {
-            if (Textbox_Name.Text.Length != 0 && Textbox_Password.Text.Length != 0 && !Textbox_Name.Text.Contains(" ") && !Textbox_Password.Text.Contains(" "))
-            {
-                string CasedLetter = Textbox_Name.Text.Substring(0, 1).ToUpper();
-                string RestName = Textbox_Name.Text.Substring(1, Textbox_Name.Text.Length - 1);
-                
-                string CasedName = CasedLetter + RestName;
+            Usercontol_Sidepanel_Chooseuser uscho = new Usercontol_Sidepanel_Chooseuser();
+            Form_Main fm = new Form_Main();
 
-                CreateUser(CasedName, Textbox_Password.Text);
+            if (fm.Users.Count <= 2)
+            {
+                if (Textbox_Name.Text.Length != 0 && Textbox_Password.Text.Length != 0 && !Textbox_Name.Text.Contains(" ") && !Textbox_Password.Text.Contains(" "))
+                {
+                    string CasedLetter = Textbox_Name.Text.Substring(0, 1).ToUpper();
+                    string RestName = Textbox_Name.Text.Substring(1, Textbox_Name.Text.Length - 1);
+
+                    string CasedName = CasedLetter + RestName;
+
+                    uscho.AddUser(CasedName, (fm.Users.Count - 1) * 41);
+                    CreateUser(CasedName, Textbox_Password.Text);
+                }
             }
+            
         }
     }
 }

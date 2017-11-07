@@ -50,8 +50,9 @@
             // 
             this.Panel_Placeholder_Users.Location = new System.Drawing.Point(21, 164);
             this.Panel_Placeholder_Users.Name = "Panel_Placeholder_Users";
-            this.Panel_Placeholder_Users.Size = new System.Drawing.Size(182, 152);
+            this.Panel_Placeholder_Users.Size = new System.Drawing.Size(182, 123);
             this.Panel_Placeholder_Users.TabIndex = 4;
+            this.Panel_Placeholder_Users.Scroll += new System.Windows.Forms.ScrollEventHandler(this.Panel_Placeholder_Users_Scroll);
             // 
             // Pictrure_Logo
             // 

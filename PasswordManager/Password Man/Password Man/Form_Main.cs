@@ -47,20 +47,23 @@ namespace Password_Man
 
             for (var i = 0; i < getFolder.Length; i++)
             {
-                Users.Add(getFolder[i]);
-                
-                string fullName()
+                if (!Users.Contains(getFolder[i]))
                 {
-                    var index = getFolder[i].IndexOf('@') + 1;
-                    string name = getFolder[i].Substring(index);
-                    string casedLetter = name.Substring(0, 1).ToUpper();
-                    string restOfName = name.Substring(1, name.Length - 1);
-                    return casedLetter + restOfName;
+                    Users.Add(getFolder[i]);
 
+                    string fullName()
+                    {
+                        var index = getFolder[i].IndexOf('@') + 1;
+                        string name = getFolder[i].Substring(index);
+                        string casedLetter = name.Substring(0, 1).ToUpper();
+                        string restOfName = name.Substring(1, name.Length - 1);
+                        return casedLetter + restOfName;
+
+                    }
+
+
+                    uschu.AddUser(fullName(), (Users.Count - 1) * 41);
                 }
-
-               
-                uschu.AddUser(fullName());
             }
         }
 
@@ -76,6 +79,7 @@ namespace Password_Man
 
         private void Picture_GoBack_Click(object sender, EventArgs e)
         {
+            CheckForUsers();
             Panel_Placeholder_Sidepanel.Controls.Remove(uscu);
             Picture_AddUser.Visible = true;
             Picture_AddUser.Enabled = true;
