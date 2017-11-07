@@ -12,6 +12,9 @@ namespace Password_Man
 {
     public partial class Usercontol_Sidepanel_Chooseuser : UserControl
     {
+        Usercontrol_Sidepanel_Userpanel usup = new Usercontrol_Sidepanel_Userpanel();
+        Form_Main fm = new Form_Main();
+
         public Usercontol_Sidepanel_Chooseuser()
         {
             InitializeComponent();
@@ -19,8 +22,7 @@ namespace Password_Man
 
         public void AddUser(string name)
         {
-            Usercontrol_Sidepanel_Userpanel usup = new Usercontrol_Sidepanel_Userpanel();
-            Form_Main fm = new Form_Main();
+            
             usup.GetName(name);
             usup.Location = new Point(0, 0);
             Panel_Placeholder_Users.Controls.Add(usup);

@@ -83,6 +83,16 @@ namespace Password_Man.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap DotMenu_White {
+            get {
+                object obj = ResourceManager.GetObject("DotMenu_White", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Exit_Gray {
             get {
                 object obj = ResourceManager.GetObject("Exit_Gray", resourceCulture);
@@ -146,6 +156,16 @@ namespace Password_Man.Properties {
         internal static System.Drawing.Bitmap User2_Gray {
             get {
                 object obj = ResourceManager.GetObject("User2_Gray", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap User2_White {
+            get {
+                object obj = ResourceManager.GetObject("User2_White", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

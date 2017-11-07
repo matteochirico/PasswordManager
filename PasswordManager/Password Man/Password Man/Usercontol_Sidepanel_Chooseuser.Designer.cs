@@ -48,9 +48,9 @@
             // 
             // Panel_Placeholder_Users
             // 
-            this.Panel_Placeholder_Users.Location = new System.Drawing.Point(21, 144);
+            this.Panel_Placeholder_Users.Location = new System.Drawing.Point(21, 164);
             this.Panel_Placeholder_Users.Name = "Panel_Placeholder_Users";
-            this.Panel_Placeholder_Users.Size = new System.Drawing.Size(182, 175);
+            this.Panel_Placeholder_Users.Size = new System.Drawing.Size(182, 152);
             this.Panel_Placeholder_Users.TabIndex = 4;
             // 
             // Pictrure_Logo

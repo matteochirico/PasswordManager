@@ -75,9 +75,9 @@ namespace Password_Man
 
         public void CreateUser(string name, string password)
         {
-            if (File.Exists("#" + name.ToLower() + ".txt"))
+            if (Directory.Exists("@" + name.ToLower()))
             {
-                // Add Error message
+                Label_Error.Text = "That username is taken.";
             }
             else
             {

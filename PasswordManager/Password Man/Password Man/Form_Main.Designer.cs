@@ -29,28 +29,28 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            BunifuAnimatorNS.Animation animation1 = new BunifuAnimatorNS.Animation();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Main));
+            BunifuAnimatorNS.Animation animation2 = new BunifuAnimatorNS.Animation();
             this.Elipse_Form = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.Panel_Header2 = new System.Windows.Forms.Panel();
-            this.Drag_Header1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
-            this.Drag_Header2 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
-            this.Panel_Background = new System.Windows.Forms.Panel();
             this.Picture_Minimize = new System.Windows.Forms.PictureBox();
             this.Picture_Exit = new System.Windows.Forms.PictureBox();
-            this.Gradient_Sidepanel = new Bunifu.Framework.UI.BunifuGradientPanel();
-            this.Panel_Placeholder_Sidepanel = new System.Windows.Forms.Panel();
+            this.Drag_Header1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.Panel_Header1 = new System.Windows.Forms.Panel();
             this.Picture_GoBack = new System.Windows.Forms.PictureBox();
             this.Picture_AddUser = new System.Windows.Forms.PictureBox();
+            this.Drag_Header2 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
+            this.Panel_Background = new System.Windows.Forms.Panel();
+            this.Gradient_Sidepanel = new Bunifu.Framework.UI.BunifuGradientPanel();
+            this.Panel_Placeholder_Sidepanel = new System.Windows.Forms.Panel();
             this.Animator_Usercontrol = new BunifuAnimatorNS.BunifuTransition(this.components);
             this.Panel_Header2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Picture_Minimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Picture_Exit)).BeginInit();
-            this.Gradient_Sidepanel.SuspendLayout();
             this.Panel_Header1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Picture_GoBack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Picture_AddUser)).BeginInit();
+            this.Gradient_Sidepanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // Elipse_Form
@@ -69,29 +69,6 @@
             this.Panel_Header2.Name = "Panel_Header2";
             this.Panel_Header2.Size = new System.Drawing.Size(353, 40);
             this.Panel_Header2.TabIndex = 1;
-            // 
-            // Drag_Header1
-            // 
-            this.Drag_Header1.Fixed = true;
-            this.Drag_Header1.Horizontal = true;
-            this.Drag_Header1.TargetControl = this.Panel_Header1;
-            this.Drag_Header1.Vertical = true;
-            // 
-            // Drag_Header2
-            // 
-            this.Drag_Header2.Fixed = true;
-            this.Drag_Header2.Horizontal = true;
-            this.Drag_Header2.TargetControl = this.Panel_Header2;
-            this.Drag_Header2.Vertical = true;
-            // 
-            // Panel_Background
-            // 
-            this.Animator_Usercontrol.SetDecoration(this.Panel_Background, BunifuAnimatorNS.DecorationType.None);
-            this.Panel_Background.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Panel_Background.Location = new System.Drawing.Point(221, 40);
-            this.Panel_Background.Name = "Panel_Background";
-            this.Panel_Background.Size = new System.Drawing.Size(353, 319);
-            this.Panel_Background.TabIndex = 2;
             // 
             // Picture_Minimize
             // 
@@ -114,6 +91,67 @@
             this.Picture_Exit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Picture_Exit.TabIndex = 0;
             this.Picture_Exit.TabStop = false;
+            // 
+            // Drag_Header1
+            // 
+            this.Drag_Header1.Fixed = true;
+            this.Drag_Header1.Horizontal = true;
+            this.Drag_Header1.TargetControl = this.Panel_Header1;
+            this.Drag_Header1.Vertical = true;
+            // 
+            // Panel_Header1
+            // 
+            this.Panel_Header1.BackColor = System.Drawing.Color.Transparent;
+            this.Panel_Header1.Controls.Add(this.Picture_GoBack);
+            this.Panel_Header1.Controls.Add(this.Picture_AddUser);
+            this.Animator_Usercontrol.SetDecoration(this.Panel_Header1, BunifuAnimatorNS.DecorationType.None);
+            this.Panel_Header1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Panel_Header1.Location = new System.Drawing.Point(0, 0);
+            this.Panel_Header1.Name = "Panel_Header1";
+            this.Panel_Header1.Size = new System.Drawing.Size(221, 40);
+            this.Panel_Header1.TabIndex = 2;
+            // 
+            // Picture_GoBack
+            // 
+            this.Animator_Usercontrol.SetDecoration(this.Picture_GoBack, BunifuAnimatorNS.DecorationType.None);
+            this.Picture_GoBack.Image = global::Password_Man.Properties.Resources.Back_White;
+            this.Picture_GoBack.Location = new System.Drawing.Point(185, 3);
+            this.Picture_GoBack.Name = "Picture_GoBack";
+            this.Picture_GoBack.Size = new System.Drawing.Size(30, 30);
+            this.Picture_GoBack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Picture_GoBack.TabIndex = 7;
+            this.Picture_GoBack.TabStop = false;
+            this.Picture_GoBack.Visible = false;
+            this.Picture_GoBack.Click += new System.EventHandler(this.Picture_GoBack_Click);
+            // 
+            // Picture_AddUser
+            // 
+            this.Animator_Usercontrol.SetDecoration(this.Picture_AddUser, BunifuAnimatorNS.DecorationType.None);
+            this.Picture_AddUser.Image = global::Password_Man.Properties.Resources.AddUser_White;
+            this.Picture_AddUser.Location = new System.Drawing.Point(185, 3);
+            this.Picture_AddUser.Name = "Picture_AddUser";
+            this.Picture_AddUser.Size = new System.Drawing.Size(30, 30);
+            this.Picture_AddUser.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Picture_AddUser.TabIndex = 6;
+            this.Picture_AddUser.TabStop = false;
+            this.Picture_AddUser.Visible = false;
+            this.Picture_AddUser.Click += new System.EventHandler(this.Picture_AddUser_Click);
+            // 
+            // Drag_Header2
+            // 
+            this.Drag_Header2.Fixed = true;
+            this.Drag_Header2.Horizontal = true;
+            this.Drag_Header2.TargetControl = this.Panel_Header2;
+            this.Drag_Header2.Vertical = true;
+            // 
+            // Panel_Background
+            // 
+            this.Animator_Usercontrol.SetDecoration(this.Panel_Background, BunifuAnimatorNS.DecorationType.None);
+            this.Panel_Background.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Panel_Background.Location = new System.Drawing.Point(221, 40);
+            this.Panel_Background.Name = "Panel_Background";
+            this.Panel_Background.Size = new System.Drawing.Size(353, 319);
+            this.Panel_Background.TabIndex = 2;
             // 
             // Gradient_Sidepanel
             // 
@@ -143,64 +181,26 @@
             this.Panel_Placeholder_Sidepanel.Size = new System.Drawing.Size(221, 319);
             this.Panel_Placeholder_Sidepanel.TabIndex = 3;
             // 
-            // Panel_Header1
-            // 
-            this.Panel_Header1.BackColor = System.Drawing.Color.Transparent;
-            this.Panel_Header1.Controls.Add(this.Picture_GoBack);
-            this.Panel_Header1.Controls.Add(this.Picture_AddUser);
-            this.Animator_Usercontrol.SetDecoration(this.Panel_Header1, BunifuAnimatorNS.DecorationType.None);
-            this.Panel_Header1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Panel_Header1.Location = new System.Drawing.Point(0, 0);
-            this.Panel_Header1.Name = "Panel_Header1";
-            this.Panel_Header1.Size = new System.Drawing.Size(221, 40);
-            this.Panel_Header1.TabIndex = 2;
-            // 
-            // Picture_GoBack
-            // 
-            this.Animator_Usercontrol.SetDecoration(this.Picture_GoBack, BunifuAnimatorNS.DecorationType.None);
-            this.Picture_GoBack.Image = global::Password_Man.Properties.Resources.Back_White;
-            this.Picture_GoBack.Location = new System.Drawing.Point(3, 3);
-            this.Picture_GoBack.Name = "Picture_GoBack";
-            this.Picture_GoBack.Size = new System.Drawing.Size(30, 30);
-            this.Picture_GoBack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.Picture_GoBack.TabIndex = 7;
-            this.Picture_GoBack.TabStop = false;
-            this.Picture_GoBack.Visible = false;
-            this.Picture_GoBack.Click += new System.EventHandler(this.Picture_GoBack_Click);
-            // 
-            // Picture_AddUser
-            // 
-            this.Animator_Usercontrol.SetDecoration(this.Picture_AddUser, BunifuAnimatorNS.DecorationType.None);
-            this.Picture_AddUser.Image = global::Password_Man.Properties.Resources.AddUser_White;
-            this.Picture_AddUser.Location = new System.Drawing.Point(3, 3);
-            this.Picture_AddUser.Name = "Picture_AddUser";
-            this.Picture_AddUser.Size = new System.Drawing.Size(30, 30);
-            this.Picture_AddUser.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.Picture_AddUser.TabIndex = 6;
-            this.Picture_AddUser.TabStop = false;
-            this.Picture_AddUser.Visible = false;
-            this.Picture_AddUser.Click += new System.EventHandler(this.Picture_AddUser_Click);
-            // 
             // Animator_Usercontrol
             // 
-            this.Animator_Usercontrol.AnimationType = BunifuAnimatorNS.AnimationType.Transparent;
+            this.Animator_Usercontrol.AnimationType = BunifuAnimatorNS.AnimationType.VertSlide;
             this.Animator_Usercontrol.Cursor = null;
-            animation1.AnimateOnlyDifferences = true;
-            animation1.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.BlindCoeff")));
-            animation1.LeafCoeff = 0F;
-            animation1.MaxTime = 1F;
-            animation1.MinTime = 0F;
-            animation1.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicCoeff")));
-            animation1.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicShift")));
-            animation1.MosaicSize = 0;
-            animation1.Padding = new System.Windows.Forms.Padding(0, 0, 0, 0);
-            animation1.RotateCoeff = 0F;
-            animation1.RotateLimit = 0F;
-            animation1.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.ScaleCoeff")));
-            animation1.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.SlideCoeff")));
-            animation1.TimeCoeff = 0F;
-            animation1.TransparencyCoeff = 1F;
-            this.Animator_Usercontrol.DefaultAnimation = animation1;
+            animation2.AnimateOnlyDifferences = true;
+            animation2.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.BlindCoeff")));
+            animation2.LeafCoeff = 0F;
+            animation2.MaxTime = 1F;
+            animation2.MinTime = 0F;
+            animation2.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicCoeff")));
+            animation2.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicShift")));
+            animation2.MosaicSize = 0;
+            animation2.Padding = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            animation2.RotateCoeff = 0F;
+            animation2.RotateLimit = 0F;
+            animation2.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.ScaleCoeff")));
+            animation2.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.SlideCoeff")));
+            animation2.TimeCoeff = 0F;
+            animation2.TransparencyCoeff = 0F;
+            this.Animator_Usercontrol.DefaultAnimation = animation2;
             // 
             // Form_Main
             // 
@@ -219,10 +219,10 @@
             this.Panel_Header2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Picture_Minimize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Picture_Exit)).EndInit();
-            this.Gradient_Sidepanel.ResumeLayout(false);
             this.Panel_Header1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Picture_GoBack)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Picture_AddUser)).EndInit();
+            this.Gradient_Sidepanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

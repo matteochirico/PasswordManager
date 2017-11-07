@@ -145,10 +145,16 @@
   <data name="AddUser_White" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Application Art\Art\AddUser_White.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="User2_White" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Application Art\Art\User2_White.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Visible_Gray" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Application Art\Art\Visible_Gray.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Back_White" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Application Art\Art\Back_White.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DotMenu_White" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Application Art\Art\DotMenu_White.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

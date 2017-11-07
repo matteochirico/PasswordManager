@@ -72,17 +72,15 @@ namespace Password_Man
             Picture_GoBack.Enabled = true;
             Panel_Placeholder_Sidepanel.Controls.Add(uscu);
             uscu.BringToFront();
-            Animator_Usercontrol.ShowSync(uscu);
         }
 
         private void Picture_GoBack_Click(object sender, EventArgs e)
         {
-            Animator_Usercontrol.Hide(uschu);
+            Panel_Placeholder_Sidepanel.Controls.Remove(uscu);
             Picture_AddUser.Visible = true;
             Picture_AddUser.Enabled = true;
             Picture_GoBack.Visible = false;
             Picture_GoBack.Enabled = false;
-            Panel_Placeholder_Sidepanel.Controls.Remove(uscu);
         }
     }
 }
