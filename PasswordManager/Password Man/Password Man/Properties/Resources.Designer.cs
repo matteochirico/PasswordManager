@@ -63,9 +63,39 @@ namespace Password_Man.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Access_DarkGrey {
+            get {
+                object obj = ResourceManager.GetObject("Access_DarkGrey", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap AddUser_DarkGray {
+            get {
+                object obj = ResourceManager.GetObject("AddUser_DarkGray", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap AddUser_White {
             get {
                 object obj = ResourceManager.GetObject("AddUser_White", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap AddUser2_DarkGray {
+            get {
+                object obj = ResourceManager.GetObject("AddUser2_DarkGray", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -96,6 +126,16 @@ namespace Password_Man.Properties {
         internal static System.Drawing.Bitmap Exit_Gray {
             get {
                 object obj = ResourceManager.GetObject("Exit_Gray", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Forward_White {
+            get {
+                object obj = ResourceManager.GetObject("Forward_White", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -166,6 +206,16 @@ namespace Password_Man.Properties {
         internal static System.Drawing.Bitmap User2_White {
             get {
                 object obj = ResourceManager.GetObject("User2_White", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap UserGroups_DarkGray {
+            get {
+                object obj = ResourceManager.GetObject("UserGroups_DarkGray", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

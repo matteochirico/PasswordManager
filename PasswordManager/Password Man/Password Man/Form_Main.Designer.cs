@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            BunifuAnimatorNS.Animation animation1 = new BunifuAnimatorNS.Animation();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Main));
-            BunifuAnimatorNS.Animation animation2 = new BunifuAnimatorNS.Animation();
             this.Elipse_Form = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.Panel_Header2 = new System.Windows.Forms.Panel();
             this.Picture_Minimize = new System.Windows.Forms.PictureBox();
@@ -40,10 +40,10 @@
             this.Picture_GoBack = new System.Windows.Forms.PictureBox();
             this.Picture_AddUser = new System.Windows.Forms.PictureBox();
             this.Drag_Header2 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
-            this.Panel_Background = new System.Windows.Forms.Panel();
+            this.Panel_Placeholder_Background = new System.Windows.Forms.Panel();
+            this.Animator_Usercontrol = new BunifuAnimatorNS.BunifuTransition(this.components);
             this.Gradient_Sidepanel = new Bunifu.Framework.UI.BunifuGradientPanel();
             this.Panel_Placeholder_Sidepanel = new System.Windows.Forms.Panel();
-            this.Animator_Usercontrol = new BunifuAnimatorNS.BunifuTransition(this.components);
             this.Panel_Header2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Picture_Minimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Picture_Exit)).BeginInit();
@@ -144,14 +144,35 @@
             this.Drag_Header2.TargetControl = this.Panel_Header2;
             this.Drag_Header2.Vertical = true;
             // 
-            // Panel_Background
+            // Panel_Placeholder_Background
             // 
-            this.Animator_Usercontrol.SetDecoration(this.Panel_Background, BunifuAnimatorNS.DecorationType.None);
-            this.Panel_Background.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Panel_Background.Location = new System.Drawing.Point(221, 40);
-            this.Panel_Background.Name = "Panel_Background";
-            this.Panel_Background.Size = new System.Drawing.Size(353, 319);
-            this.Panel_Background.TabIndex = 2;
+            this.Animator_Usercontrol.SetDecoration(this.Panel_Placeholder_Background, BunifuAnimatorNS.DecorationType.None);
+            this.Panel_Placeholder_Background.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Panel_Placeholder_Background.Location = new System.Drawing.Point(221, 40);
+            this.Panel_Placeholder_Background.Name = "Panel_Placeholder_Background";
+            this.Panel_Placeholder_Background.Size = new System.Drawing.Size(353, 319);
+            this.Panel_Placeholder_Background.TabIndex = 2;
+            // 
+            // Animator_Usercontrol
+            // 
+            this.Animator_Usercontrol.AnimationType = BunifuAnimatorNS.AnimationType.VertSlide;
+            this.Animator_Usercontrol.Cursor = null;
+            animation1.AnimateOnlyDifferences = true;
+            animation1.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.BlindCoeff")));
+            animation1.LeafCoeff = 0F;
+            animation1.MaxTime = 1F;
+            animation1.MinTime = 0F;
+            animation1.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicCoeff")));
+            animation1.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicShift")));
+            animation1.MosaicSize = 0;
+            animation1.Padding = new System.Windows.Forms.Padding(0);
+            animation1.RotateCoeff = 0F;
+            animation1.RotateLimit = 0F;
+            animation1.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.ScaleCoeff")));
+            animation1.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.SlideCoeff")));
+            animation1.TimeCoeff = 0F;
+            animation1.TransparencyCoeff = 0F;
+            this.Animator_Usercontrol.DefaultAnimation = animation1;
             // 
             // Gradient_Sidepanel
             // 
@@ -181,34 +202,13 @@
             this.Panel_Placeholder_Sidepanel.Size = new System.Drawing.Size(221, 319);
             this.Panel_Placeholder_Sidepanel.TabIndex = 3;
             // 
-            // Animator_Usercontrol
-            // 
-            this.Animator_Usercontrol.AnimationType = BunifuAnimatorNS.AnimationType.VertSlide;
-            this.Animator_Usercontrol.Cursor = null;
-            animation2.AnimateOnlyDifferences = true;
-            animation2.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.BlindCoeff")));
-            animation2.LeafCoeff = 0F;
-            animation2.MaxTime = 1F;
-            animation2.MinTime = 0F;
-            animation2.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicCoeff")));
-            animation2.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicShift")));
-            animation2.MosaicSize = 0;
-            animation2.Padding = new System.Windows.Forms.Padding(0, 0, 0, 0);
-            animation2.RotateCoeff = 0F;
-            animation2.RotateLimit = 0F;
-            animation2.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.ScaleCoeff")));
-            animation2.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.SlideCoeff")));
-            animation2.TimeCoeff = 0F;
-            animation2.TransparencyCoeff = 0F;
-            this.Animator_Usercontrol.DefaultAnimation = animation2;
-            // 
             // Form_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(574, 359);
-            this.Controls.Add(this.Panel_Background);
+            this.Controls.Add(this.Panel_Placeholder_Background);
             this.Controls.Add(this.Panel_Header2);
             this.Controls.Add(this.Gradient_Sidepanel);
             this.Animator_Usercontrol.SetDecoration(this, BunifuAnimatorNS.DecorationType.None);
@@ -233,15 +233,15 @@
         private Bunifu.Framework.UI.BunifuElipse Elipse_Form;
         private System.Windows.Forms.Panel Panel_Header1;
         private System.Windows.Forms.Panel Panel_Header2;
-        private System.Windows.Forms.Panel Panel_Background;
         private System.Windows.Forms.PictureBox Picture_Exit;
         private Bunifu.Framework.UI.BunifuDragControl Drag_Header1;
         private Bunifu.Framework.UI.BunifuDragControl Drag_Header2;
         private System.Windows.Forms.PictureBox Picture_Minimize;
-        private System.Windows.Forms.Panel Panel_Placeholder_Sidepanel;
         private System.Windows.Forms.PictureBox Picture_AddUser;
         private System.Windows.Forms.PictureBox Picture_GoBack;
         private BunifuAnimatorNS.BunifuTransition Animator_Usercontrol;
+        public System.Windows.Forms.Panel Panel_Placeholder_Background;
+        public System.Windows.Forms.Panel Panel_Placeholder_Sidepanel;
     }
 }
 

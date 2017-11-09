@@ -13,12 +13,17 @@ namespace Password_Man
 {
     public partial class Form_Main : Form
     {
+        public static string currentUser, currentPassword;
+
         public static List<string> Users = new List<string>();
         static string[] getFolder;
         
 
         Usercontrol_Sidepanel_Createuser uscu = new Usercontrol_Sidepanel_Createuser();
+        Usercontrol_Sidepanel_Password usp = new Usercontrol_Sidepanel_Password();
         static Usercontol_Sidepanel_Chooseuser uschu = new Usercontol_Sidepanel_Chooseuser();
+
+        Usercontrol_Background_Description ubd = new Usercontrol_Background_Description();
 
         public Form_Main()
         {
@@ -31,11 +36,21 @@ namespace Password_Man
 
             if (Users.Count == 0)
             {
+                Usercontrol_Sidepanel_Createuser.firstTime = true;
                 Panel_Placeholder_Sidepanel.Controls.Add(uscu);
+
+                Panel_Placeholder_Background.Controls.Add(ubd);
+                ubd.ChangeType(Usercontrol_Background_Description.Type.Create);
+                ubd.BringToFront();
             }
             else
             {
+                Usercontrol_Sidepanel_Createuser.firstTime = false;
                 Panel_Placeholder_Sidepanel.Controls.Add(uschu);
+
+                Panel_Placeholder_Background.Controls.Add(ubd);
+                ubd.ChangeType(Usercontrol_Background_Description.Type.Choose);
+                ubd.BringToFront();
                 Picture_AddUser.Visible = true;             
             }
         }
@@ -71,20 +86,42 @@ namespace Password_Man
             Picture_AddUser.Enabled = false;
             Picture_GoBack.Visible = true;
             Picture_GoBack.Enabled = true;
+
             Panel_Placeholder_Sidepanel.Controls.Add(uscu);
             uscu.BringToFront();
+
+            Panel_Placeholder_Background.Controls.Add(ubd);
+            ubd.ChangeType(Usercontrol_Background_Description.Type.Create);
+            ubd.BringToFront();
         }
 
         private void Picture_GoBack_Click(object sender, EventArgs e)
         {
             Panel_Placeholder_Sidepanel.Controls.Remove(uscu);
+
+            ubd.ChangeType(Usercontrol_Background_Description.Type.Choose);
+
             Picture_AddUser.Visible = true;
             Picture_AddUser.Enabled = true;
             Picture_GoBack.Visible = false;
             Picture_GoBack.Enabled = false;
+
             uscu.Textbox_Name.ResetText();
             uscu.Textbox_Password.ResetText();
             uscu.Label_Error.ResetText();
+        }
+
+        public void EnterPassword()
+        {
+            ubd.ChangeType(Usercontrol_Background_Description.Type.Password);
+            Panel_Placeholder_Sidepanel.Controls.Clear();
+            Panel_Placeholder_Sidepanel.Controls.Add(usp);
+            usp.BringToFront();
+        }
+
+        public void LogIn()
+        {
+
         }
     }
 }

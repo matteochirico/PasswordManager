@@ -14,6 +14,9 @@ namespace Password_Man
 {
     public partial class Usercontrol_Sidepanel_Createuser : UserControl
     {
+        string CasedName;
+        public static bool firstTime;
+
         public Usercontrol_Sidepanel_Createuser()
         {
             InitializeComponent();
@@ -99,6 +102,14 @@ namespace Password_Man
                 sn.Close();
                 File.Encrypt(Path.Combine(BaseDirectory, FileDirectory) + "p");
                 File.Encrypt(Path.Combine(BaseDirectory, FileDirectory) + "n");
+
+                if (firstTime)
+                {
+                    Form_Main.currentUser = CasedName;
+                    Form_Main.currentPassword = Textbox_Password.Text;
+                    fm.LogIn();
+                }
+
             }
             else if (Form_Main.Users.Count == 3)
             {
@@ -118,13 +129,13 @@ namespace Password_Man
         {
             Usercontol_Sidepanel_Chooseuser uscho = new Usercontol_Sidepanel_Chooseuser();
             Form_Main fm = new Form_Main();
-
-            if (Textbox_Name.Text.Length != 0 && Textbox_Password.Text.Length != 0 && !Textbox_Name.Text.Contains(" ") && !Textbox_Password.Text.Contains(" "))
+            
+            if (!string.IsNullOrWhiteSpace(Textbox_Name.Text) && !string.IsNullOrWhiteSpace(Textbox_Password.Text) && !Textbox_Name.Text.Contains(" ") && !Textbox_Password.Text.Contains(" "))
             {
                 string CasedLetter = Textbox_Name.Text.Substring(0, 1).ToUpper();
                 string RestName = Textbox_Name.Text.Substring(1, Textbox_Name.Text.Length - 1);
 
-                string CasedName = CasedLetter + RestName;
+                CasedName = CasedLetter + RestName;
 
                 CreateUser(CasedName, Textbox_Password.Text);
             }
