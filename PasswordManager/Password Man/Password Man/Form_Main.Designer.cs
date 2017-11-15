@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            BunifuAnimatorNS.Animation animation1 = new BunifuAnimatorNS.Animation();
+            BunifuAnimatorNS.Animation animation2 = new BunifuAnimatorNS.Animation();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Main));
             this.Elipse_Form = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.Panel_Header2 = new System.Windows.Forms.Panel();
@@ -44,6 +44,11 @@
             this.Animator_Usercontrol = new BunifuAnimatorNS.BunifuTransition(this.components);
             this.Gradient_Sidepanel = new Bunifu.Framework.UI.BunifuGradientPanel();
             this.Panel_Placeholder_Sidepanel = new System.Windows.Forms.Panel();
+            this.Timer_FormFadeIn = new System.Windows.Forms.Timer(this.components);
+            this.Timer_FormFadeOut = new System.Windows.Forms.Timer(this.components);
+            this.Timer_FormMinimizeIn = new System.Windows.Forms.Timer(this.components);
+            this.Timer_FormMinimzeOut = new System.Windows.Forms.Timer(this.components);
+            this.Timer_WindowstateCheck = new System.Windows.Forms.Timer(this.components);
             this.Panel_Header2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Picture_Minimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Picture_Exit)).BeginInit();
@@ -80,6 +85,7 @@
             this.Picture_Minimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Picture_Minimize.TabIndex = 1;
             this.Picture_Minimize.TabStop = false;
+            this.Picture_Minimize.Click += new System.EventHandler(this.Picture_Minimize_Click);
             // 
             // Picture_Exit
             // 
@@ -91,6 +97,7 @@
             this.Picture_Exit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Picture_Exit.TabIndex = 0;
             this.Picture_Exit.TabStop = false;
+            this.Picture_Exit.Click += new System.EventHandler(this.Picture_Exit_Click);
             // 
             // Drag_Header1
             // 
@@ -157,22 +164,22 @@
             // 
             this.Animator_Usercontrol.AnimationType = BunifuAnimatorNS.AnimationType.VertSlide;
             this.Animator_Usercontrol.Cursor = null;
-            animation1.AnimateOnlyDifferences = true;
-            animation1.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.BlindCoeff")));
-            animation1.LeafCoeff = 0F;
-            animation1.MaxTime = 1F;
-            animation1.MinTime = 0F;
-            animation1.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicCoeff")));
-            animation1.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicShift")));
-            animation1.MosaicSize = 0;
-            animation1.Padding = new System.Windows.Forms.Padding(0);
-            animation1.RotateCoeff = 0F;
-            animation1.RotateLimit = 0F;
-            animation1.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.ScaleCoeff")));
-            animation1.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.SlideCoeff")));
-            animation1.TimeCoeff = 0F;
-            animation1.TransparencyCoeff = 0F;
-            this.Animator_Usercontrol.DefaultAnimation = animation1;
+            animation2.AnimateOnlyDifferences = true;
+            animation2.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.BlindCoeff")));
+            animation2.LeafCoeff = 0F;
+            animation2.MaxTime = 1F;
+            animation2.MinTime = 0F;
+            animation2.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicCoeff")));
+            animation2.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicShift")));
+            animation2.MosaicSize = 0;
+            animation2.Padding = new System.Windows.Forms.Padding(0);
+            animation2.RotateCoeff = 0F;
+            animation2.RotateLimit = 0F;
+            animation2.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.ScaleCoeff")));
+            animation2.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.SlideCoeff")));
+            animation2.TimeCoeff = 0F;
+            animation2.TransparencyCoeff = 0F;
+            this.Animator_Usercontrol.DefaultAnimation = animation2;
             // 
             // Gradient_Sidepanel
             // 
@@ -202,6 +209,32 @@
             this.Panel_Placeholder_Sidepanel.Size = new System.Drawing.Size(221, 319);
             this.Panel_Placeholder_Sidepanel.TabIndex = 3;
             // 
+            // Timer_FormFadeIn
+            // 
+            this.Timer_FormFadeIn.Interval = 1;
+            this.Timer_FormFadeIn.Tick += new System.EventHandler(this.Timer_FormFadeIn_Tick);
+            // 
+            // Timer_FormFadeOut
+            // 
+            this.Timer_FormFadeOut.Interval = 1;
+            this.Timer_FormFadeOut.Tick += new System.EventHandler(this.Timer_FormFadeOut_Tick);
+            // 
+            // Timer_FormMinimizeIn
+            // 
+            this.Timer_FormMinimizeIn.Interval = 1;
+            this.Timer_FormMinimizeIn.Tick += new System.EventHandler(this.Timer_FormMinimizeIn_Tick);
+            // 
+            // Timer_FormMinimzeOut
+            // 
+            this.Timer_FormMinimzeOut.Interval = 1;
+            this.Timer_FormMinimzeOut.Tick += new System.EventHandler(this.Timer_FormMinimzeOut_Tick);
+            // 
+            // Timer_WindowstateCheck
+            // 
+            this.Timer_WindowstateCheck.Enabled = true;
+            this.Timer_WindowstateCheck.Interval = 1;
+            this.Timer_WindowstateCheck.Tick += new System.EventHandler(this.Timer_WindowstateCheck_Tick);
+            // 
             // Form_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -214,6 +247,7 @@
             this.Animator_Usercontrol.SetDecoration(this, BunifuAnimatorNS.DecorationType.None);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form_Main";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form_Main_Load);
             this.Panel_Header2.ResumeLayout(false);
@@ -242,6 +276,11 @@
         private BunifuAnimatorNS.BunifuTransition Animator_Usercontrol;
         public System.Windows.Forms.Panel Panel_Placeholder_Background;
         public System.Windows.Forms.Panel Panel_Placeholder_Sidepanel;
+        private System.Windows.Forms.Timer Timer_FormFadeIn;
+        private System.Windows.Forms.Timer Timer_FormFadeOut;
+        private System.Windows.Forms.Timer Timer_FormMinimizeIn;
+        private System.Windows.Forms.Timer Timer_FormMinimzeOut;
+        private System.Windows.Forms.Timer Timer_WindowstateCheck;
     }
 }
 

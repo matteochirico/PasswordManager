@@ -12,6 +12,8 @@ namespace Password_Man
 {
     public partial class Usercontrol_Background_Description : UserControl
     {
+        public static Usercontrol_Background_Description ubd;
+
         public enum Type
         {
             Choose,
@@ -22,6 +24,7 @@ namespace Password_Man
         public Usercontrol_Background_Description()
         {
             InitializeComponent();
+            ubd = this;
         }
 
         public void ChangeType(Type type)

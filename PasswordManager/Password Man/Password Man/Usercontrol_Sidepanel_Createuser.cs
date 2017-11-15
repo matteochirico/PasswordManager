@@ -14,12 +14,14 @@ namespace Password_Man
 {
     public partial class Usercontrol_Sidepanel_Createuser : UserControl
     {
+        public static Usercontrol_Sidepanel_Createuser uscu;
         string CasedName;
         public static bool firstTime;
 
         public Usercontrol_Sidepanel_Createuser()
         {
             InitializeComponent();
+            uscu = this;
         }
 
         #region TextBoxes & etc.

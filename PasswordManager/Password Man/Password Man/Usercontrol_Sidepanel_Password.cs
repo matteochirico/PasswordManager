@@ -12,9 +12,13 @@ namespace Password_Man
 {
     public partial class Usercontrol_Sidepanel_Password : UserControl
     {
+        public static Usercontrol_Sidepanel_Password usp;
+
         public Usercontrol_Sidepanel_Password()
         {
             InitializeComponent();
+            usp = this;
+
         }
 
         #region Textbox & etc.
