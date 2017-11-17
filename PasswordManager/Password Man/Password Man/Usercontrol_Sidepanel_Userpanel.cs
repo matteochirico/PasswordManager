@@ -12,12 +12,9 @@ namespace Password_Man
 {
     public partial class Usercontrol_Sidepanel_Userpanel : UserControl
     {
-        public static Usercontrol_Sidepanel_Userpanel usp;
-
         public Usercontrol_Sidepanel_Userpanel()
         {
             InitializeComponent();
-            usp = this;
         }
 
         public void GetName(string name)
@@ -27,7 +24,7 @@ namespace Password_Man
 
         private void Picture_Proceed_Click(object sender, EventArgs e)
         {
-            Form_Main.Main.EnterPassword();
+            Form_Main.Main.EnterPassword(Label_Name.Text);
         }
     }
 }

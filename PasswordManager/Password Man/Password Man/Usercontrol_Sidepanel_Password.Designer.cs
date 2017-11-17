@@ -192,6 +192,6 @@
         public System.Windows.Forms.TextBox Textbox_Password;
         private Bunifu.Framework.UI.BunifuThinButton2 Button_Proceed;
         private Bunifu.Framework.UI.BunifuElipse Elipse_Password;
-        private System.Windows.Forms.Label Label_Name;
+        public System.Windows.Forms.Label Label_Name;
     }
 }

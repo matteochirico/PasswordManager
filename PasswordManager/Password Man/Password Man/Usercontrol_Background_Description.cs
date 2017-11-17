@@ -24,7 +24,6 @@ namespace Password_Man
         public Usercontrol_Background_Description()
         {
             InitializeComponent();
-            ubd = this;
         }
 
         public void ChangeType(Type type)

@@ -22,6 +22,12 @@ namespace Password_Man
         {
             InitializeComponent();
             Main = this;
+            Usercontol_Sidepanel_Chooseuser.uschu = new Usercontol_Sidepanel_Chooseuser();
+            Usercontrol_Background_Description.ubd = new Usercontrol_Background_Description();
+            Usercontrol_Sidepanel_Createuser.uscu = new Usercontrol_Sidepanel_Createuser();
+            Usercontrol_Sidepanel_Password.usp = new Usercontrol_Sidepanel_Password();
+            Usercontrol_Sidepanel_Userpanel usup = new Usercontrol_Sidepanel_Userpanel();
+            DoubleBuffered = true;
         }
 
         private void Form_Main_Load(object sender, EventArgs e)
@@ -88,37 +94,43 @@ namespace Password_Man
 
             Panel_Placeholder_Background.Controls.Add(Usercontrol_Background_Description.ubd);
             Usercontrol_Background_Description.ubd.ChangeType(Usercontrol_Background_Description.Type.Create);
-            Usercontrol_Background_Description.ubd.BringToFront();
         }
 
         private void Picture_GoBack_Click(object sender, EventArgs e)
         {
-            Panel_Placeholder_Sidepanel.Controls.Remove(Usercontrol_Sidepanel_Createuser.uscu);
-
-            Usercontrol_Background_Description.ubd.ChangeType(Usercontrol_Background_Description.Type.Choose);
-
             Picture_AddUser.Visible = true;
             Picture_AddUser.Enabled = true;
             Picture_GoBack.Visible = false;
             Picture_GoBack.Enabled = false;
 
-            Usercontrol_Sidepanel_Createuser.uscu.Textbox_Name.ResetText();
-            Usercontrol_Sidepanel_Createuser.uscu.Textbox_Password.ResetText();
-            Usercontrol_Sidepanel_Createuser.uscu.Label_Error.ResetText();
+            Panel_Placeholder_Sidepanel.Controls.Clear();
+
+            Panel_Placeholder_Sidepanel.Controls.Add(Usercontol_Sidepanel_Chooseuser.uschu);
+            Users.Clear();
+            CheckForUsers();
+
+            Usercontrol_Background_Description.ubd.ChangeType(Usercontrol_Background_Description.Type.Choose);
+
+            Usercontrol_Sidepanel_Createuser.uscu.Textbox_Name.Clear();
+            Usercontrol_Sidepanel_Createuser.uscu.Textbox_Password.Clear();
+
+            Usercontrol_Sidepanel_Password.usp.Textbox_Password.Clear();
+            Usercontrol_Sidepanel_Password.usp.Label_Name.Text = "";
         }
-        
-        public void EnterPassword()
+
+        public void EnterPassword(string name)
         {
             Usercontrol_Background_Description.ubd.ChangeType(Usercontrol_Background_Description.Type.Password);
-
-            foreach (Control controls in Panel_Placeholder_Sidepanel.Controls)
-            {
-                controls.Controls.Remove(controls);
-                controls.Dispose();
-            }
             
             Panel_Placeholder_Sidepanel.Controls.Add(Usercontrol_Sidepanel_Password.usp);
             Usercontrol_Sidepanel_Password.usp.BringToFront();
+
+            Usercontrol_Sidepanel_Password.usp.Label_Name.Text = name;
+
+            Picture_GoBack.Visible = true;
+            Picture_GoBack.Enabled = true;
+            Picture_AddUser.Visible = false;
+            Picture_AddUser.Enabled = false;
         }
 
         #region FadeIn & FadeOut

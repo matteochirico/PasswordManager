@@ -13,19 +13,19 @@ namespace Password_Man
     public partial class Usercontol_Sidepanel_Chooseuser : UserControl
     {
         public static Usercontol_Sidepanel_Chooseuser uschu { get; set; }
+        Usercontrol_Sidepanel_Userpanel usup = new Usercontrol_Sidepanel_Userpanel();
 
         public Usercontol_Sidepanel_Chooseuser()
         {
-            uschu = this;
             InitializeComponent();
            
         }
 
-        public void AddUser(string name, int count)
+        public void AddUser(string name, int location)
         {
-            Usercontrol_Sidepanel_Userpanel.usp.GetName(name);
-            Usercontrol_Sidepanel_Userpanel.usp.Location = new Point(0, count);
-            Panel_Placeholder_Users.Controls.Add(Usercontrol_Sidepanel_Userpanel.usp);
+            usup.GetName(name);
+            usup.Location = new Point(0, location);
+            Panel_Placeholder_Users.Controls.Add(usup);
             
         }
 

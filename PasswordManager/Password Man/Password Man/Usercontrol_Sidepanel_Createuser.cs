@@ -21,7 +21,6 @@ namespace Password_Man
         public Usercontrol_Sidepanel_Createuser()
         {
             InitializeComponent();
-            uscu = this;
         }
 
         #region TextBoxes & etc.

@@ -17,7 +17,6 @@ namespace Password_Man
         public Usercontrol_Sidepanel_Password()
         {
             InitializeComponent();
-            usp = this;
 
         }
 
