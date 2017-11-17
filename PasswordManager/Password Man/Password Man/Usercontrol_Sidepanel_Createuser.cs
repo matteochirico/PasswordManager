@@ -106,9 +106,7 @@ namespace Password_Man
 
                 if (firstTime)
                 {
-                    Form_Main.currentUser = CasedName;
-                    Form_Main.currentPassword = Textbox_Password.Text;
-                    fm.LogIn();
+                    fm.LogIn(CasedName, Textbox_Password.Text);
                 }
 
             }

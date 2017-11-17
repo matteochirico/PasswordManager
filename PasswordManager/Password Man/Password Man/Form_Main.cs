@@ -27,6 +27,7 @@ namespace Password_Man
             Usercontrol_Sidepanel_Createuser.uscu = new Usercontrol_Sidepanel_Createuser();
             Usercontrol_Sidepanel_Password.usp = new Usercontrol_Sidepanel_Password();
             Usercontrol_Sidepanel_Userpanel usup = new Usercontrol_Sidepanel_Userpanel();
+            Usercontrol_Sidepanel_Main.usm = new Usercontrol_Sidepanel_Main();
             DoubleBuffered = true;
         }
 
@@ -199,9 +200,23 @@ namespace Password_Man
         }
         #endregion
 
-        public void LogIn()
+        public void LogIn(string user, string password)
         {
+            currentUser = user;
+            currentPassword = password;
 
+            try
+            {
+                Panel_Placeholder_Sidepanel.Controls.Remove(Usercontol_Sidepanel_Chooseuser.uschu);
+                Panel_Placeholder_Sidepanel.Controls.Remove(Usercontrol_Sidepanel_Password.usp);
+            }
+            catch
+            {
+                Panel_Placeholder_Sidepanel.Controls.Remove(Usercontrol_Sidepanel_Createuser.uscu);
+            }
+
+            Panel_Placeholder_Sidepanel.Controls.Add(Usercontrol_Sidepanel_Main.usm);
+            Usercontrol_Sidepanel_Main.usm.Label_Title.Text = currentUser;
         }
     }
 }
