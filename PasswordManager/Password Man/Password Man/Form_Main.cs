@@ -26,7 +26,6 @@ namespace Password_Man
             Usercontrol_Background_Description.ubd = new Usercontrol_Background_Description();
             Usercontrol_Sidepanel_Createuser.uscu = new Usercontrol_Sidepanel_Createuser();
             Usercontrol_Sidepanel_Password.usp = new Usercontrol_Sidepanel_Password();
-            Usercontrol_Sidepanel_Userpanel usup = new Usercontrol_Sidepanel_Userpanel();
             Usercontrol_Sidepanel_Main.usm = new Usercontrol_Sidepanel_Main();
             DoubleBuffered = true;
         }
@@ -78,7 +77,7 @@ namespace Password_Man
                         return casedLetter + restOfName;
                     }
 
-                    Usercontol_Sidepanel_Chooseuser.uschu.AddUser(fullName(), (Users.Count - 1) * 41);
+                    Usercontol_Sidepanel_Chooseuser.uschu.AddUser(fullName(), (Users.Count - 1) * 42);
                 }
             }
         }

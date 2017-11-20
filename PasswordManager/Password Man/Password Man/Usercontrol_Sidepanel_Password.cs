@@ -67,5 +67,10 @@ namespace Password_Man
         {
             Label_Name.Text = Form_Main.currentUser;
         }
+
+        private void Button_Proceed_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

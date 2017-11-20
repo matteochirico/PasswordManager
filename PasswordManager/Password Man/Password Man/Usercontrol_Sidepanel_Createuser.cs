@@ -15,7 +15,10 @@ namespace Password_Man
     public partial class Usercontrol_Sidepanel_Createuser : UserControl
     {
         public static Usercontrol_Sidepanel_Createuser uscu;
-        string CasedName;
+        string CasedName = string.Empty;
+        string CasedLetter = string.Empty;
+        string RestName = string.Empty;
+
         public static bool firstTime;
 
         public Usercontrol_Sidepanel_Createuser()
@@ -82,8 +85,18 @@ namespace Password_Man
         {
             Usercontol_Sidepanel_Chooseuser uschu = new Usercontol_Sidepanel_Chooseuser();
             Form_Main fm = new Form_Main();
-            
-            if (Directory.Exists("@" + name.ToLower()))
+
+            if (string.IsNullOrWhiteSpace(Textbox_Name.Text) || string.IsNullOrWhiteSpace(Textbox_Password.Text))
+            {
+                Label_Error.Text = "Reenter username/password";
+                return;
+            }
+            else if (Form_Main.Users.Count == 3)
+            {
+                Label_Error.Text = "Maximum user count reached";
+                return;
+            }
+            else if (Directory.Exists("@" + name.ToLower()))
             {
                 Label_Error.Text = "User already exists";
                 return;
@@ -103,20 +116,9 @@ namespace Password_Man
                 sn.Close();
                 File.Encrypt(Path.Combine(BaseDirectory, FileDirectory) + "p");
                 File.Encrypt(Path.Combine(BaseDirectory, FileDirectory) + "n");
-
-                if (firstTime)
-                {
-                    fm.LogIn(CasedName, Textbox_Password.Text);
-                }
-
-            }
-            else if (Form_Main.Users.Count == 3)
-            {
-                Label_Error.Text = "Maximum user count reached";
-                return;
+                Form_Main.Main.LogIn(name, password);
             }
 
-            Form_Main.CheckForUsers();
         }
 
         private void Usercontrol_Sidepanel_Createuser_Load(object sender, EventArgs e)
@@ -129,15 +131,16 @@ namespace Password_Man
             Usercontol_Sidepanel_Chooseuser uscho = new Usercontol_Sidepanel_Chooseuser();
             Form_Main fm = new Form_Main();
             
-            if (!string.IsNullOrWhiteSpace(Textbox_Name.Text) && !string.IsNullOrWhiteSpace(Textbox_Password.Text) && !Textbox_Name.Text.Contains(" ") && !Textbox_Password.Text.Contains(" "))
+            if (!string.IsNullOrWhiteSpace(Textbox_Name.Text))
             {
-                string CasedLetter = Textbox_Name.Text.Substring(0, 1).ToUpper();
-                string RestName = Textbox_Name.Text.Substring(1, Textbox_Name.Text.Length - 1);
-
-                CasedName = CasedLetter + RestName;
-
-                CreateUser(CasedName, Textbox_Password.Text);
+                CasedLetter = Textbox_Name.Text.Substring(0, 1).ToUpper();
+                RestName = Textbox_Name.Text.Substring(1, Textbox_Name.Text.Length - 1).ToLower();
             }
+
+            CasedName = CasedLetter + RestName;
+
+            CreateUser(CasedName, Textbox_Password.Text);
+            
         }
     }
 }

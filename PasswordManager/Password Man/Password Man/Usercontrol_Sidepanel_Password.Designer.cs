@@ -142,6 +142,7 @@
             this.Button_Proceed.Size = new System.Drawing.Size(182, 41);
             this.Button_Proceed.TabIndex = 7;
             this.Button_Proceed.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Button_Proceed.Click += new System.EventHandler(this.Button_Proceed_Click);
             // 
             // Elipse_Password
             // 
